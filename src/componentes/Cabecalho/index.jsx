@@ -10,11 +10,11 @@ const HeaderEstilizado = styled.header`
   }
 `
 
-const Cabecalho = () => {
+const Cabecalho = ({filtro, setFiltro}) => {
   return (
     <HeaderEstilizado>
       <img src="/imagens/logo.png" alt="imagen de space" />
-      <CampoTexto />
+      <CampoTexto value={filtro} onChange={(event) => setFiltro(event.target.value)} />
     </HeaderEstilizado>
   )
 }

@@ -28,7 +28,7 @@ const DialogEstilizado = styled.dialog`
     padding: 24px;
   }
 `
-const ModalZoomInner = ({foto, aoFechar}) => {
+const ModalZoomInner = ({foto, aoFechar, aoAlternarFavorito}) => {
   return (
     <>
       <Overlay />
@@ -36,16 +36,16 @@ const ModalZoomInner = ({foto, aoFechar}) => {
         <form method="dialog">
           <BotaoIcone onClick={aoFechar} filename="fechar.png" alt="Fechar"></BotaoIcone>
         </form>
-        <Imagem foto={foto} expandida={true} />
+        <Imagem foto={foto} expandida={true} aoAlternarFavorito={aoAlternarFavorito} />
       </DialogEstilizado>
     </>
   )
 }
 
-const ModalZoom = ({foto, aoFechar}) => {
+const ModalZoom = ({foto, aoFechar, aoAlternarFavorito}) => {
   return (
     <>
-      {foto && <ModalZoomInner foto={foto} aoFechar={aoFechar} />}
+      {foto && <ModalZoomInner aoAlternarFavorito={aoAlternarFavorito} foto={foto} aoFechar={aoFechar} />}
     </>
   )
 }

@@ -12,7 +12,7 @@ const FigureEstilizada = styled.figure`
   overflow: hidden;
   & > img {
     width: 100%;
-    height: ${(props) => (props.$expandida ? '661px' : '256px')};
+    max-height: ${(props) => (props.$expandida ? '661px' : '256px')};
   }
 
   figcaption {
@@ -46,7 +46,7 @@ const RodapeEstilizado = styled.footer`
   align-items: center;
 `
 
-const Imagem = ({ foto, expandida, aoZoomSolicitado }) => {
+const Imagem = ({ foto, expandida, aoZoomSolicitado, aoAlternarFavorito }) => {
   return (
     <FigureEstilizada $expandida={expandida}>
       <img src={foto.path} />
@@ -54,7 +54,11 @@ const Imagem = ({ foto, expandida, aoZoomSolicitado }) => {
         <h3>{foto.titulo}</h3>
         <RodapeEstilizado>
           <h4>Fonte {foto.fonte}</h4>
-          <BotaoIcone filename="favorito.png" alt="Icone de favorito" />
+          <BotaoIcone
+            onClick={() => aoAlternarFavorito(foto)}
+            filename={foto.favorita ? "favorito-ativo.png" : "favorito.png"}
+            alt="Icone de favorito"
+          />
           {!expandida && <BotaoIcone
             ariaHidden={expandida}
             onClick={() => aoZoomSolicitado(foto)}

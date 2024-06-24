@@ -27,10 +27,10 @@ const Tag = styled.button`
   }
 `
 
-const Tags = () => {
+const Tags = ({setTagId}) => {
   return <TagContainer>
     <TagTitulo>Busque por tags:</TagTitulo>
-    {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
+    {tags.map(tag => <Tag onClick={(event) => setTagId(tag.id)} key={tag.id}>{tag.titulo}</Tag>)}
   </TagContainer>
 }
 

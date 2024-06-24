@@ -18,10 +18,10 @@ const FotosContainer = styled.div`
    gap: 24px;
 `
 
-const Galeria = ({ fotos = [], aoFotoSelecionada, aoAlternarFavorito }) => {
+const Galeria = ({ fotos = [], aoFotoSelecionada, aoAlternarFavorito, setTagId }) => {
   return (
     <>
-      <Tags />
+      <Tags setTagId={setTagId} />
       <GaleriaContainer>
         <SecaoFluida>
           <Titulo>Navegue pela galeria</Titulo>
@@ -33,8 +33,6 @@ const Galeria = ({ fotos = [], aoFotoSelecionada, aoAlternarFavorito }) => {
                 aoAlternarFavorito={aoAlternarFavorito}
                 key={foto.id}
                 foto={foto}
-                favorito={foto.favorito}
-                tag={foto.tag}
               />
             )
             }

@@ -11,7 +11,11 @@ const BotaoEstilizado = styled.button`
 `
 
 const BotaoIcone = ({filename, onClick, ariaHidden, alt}) => {
-  return (<BotaoEstilizado onClick={onClick} aria-hidden={ariaHidden}><img src={"/icones/" + filename} alt={alt} /></BotaoEstilizado>)
+  return (<BotaoEstilizado
+    onClick={onClick}
+    aria-hidden={ariaHidden}>
+      <img src={"/icones/" + filename} alt={alt} />
+    </BotaoEstilizado>)
 }
 
 export default BotaoIcone
